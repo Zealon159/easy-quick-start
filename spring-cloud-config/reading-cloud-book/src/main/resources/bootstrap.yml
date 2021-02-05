@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: light-reading-cloud-book
+  cloud:
+    config:
+      # 若拉取不到配置中心数据，则快速失败
+      failFast: true
+      profile: dev
+      label: master
+      uri: http://localhost:8888/
+      # 对应eureka中的配置中心，默认不写是找config-server
+      discovery:
+        serviceId: LIGHT-READING-CLOUD-CONFIG
+        enabled: true
+      username: BISA1590
+      password: 1Qwe!342wA18
+
+eureka:
+  instance:
+    # 注册服务的IP，而不是逻辑名称
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh'

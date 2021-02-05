@@ -1,0 +1,39 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    # 服务逻辑名称
+    name: light-reading-cloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/zealon159/config-repo
+          search-paths: dev,prod
+          username: BISA1590
+          password: 1Qwe!342wA18
+          clone-on-start: true
+      name: light-reading-cloud-config
+
+  # MQ 配置
+  rabbitmq:
+    virtual-host: /freebook
+    host: rabbitmq-freebook-service.livedev.svc.cluster.local
+    port: 5672
+    username: user
+    password: admin
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
