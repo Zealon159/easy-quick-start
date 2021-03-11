@@ -24,7 +24,7 @@ import java.util.Properties;
         sqlSessionTemplateRef="dsSqlSessionTemplate")
 public class MybatisConfig {
 
-    private final static String MAPPER_LOCATIONS = "classpath*:mappers/*.xml";
+    private final static String MAPPER_LOCATIONS = "classpath*:mappers/*/*.xml";
 
     /** 工厂配置 */
     @Bean

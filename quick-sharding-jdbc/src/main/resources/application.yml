@@ -1,5 +1,23 @@
-
 spring:
+  datasource:
+    # 动态数据源配置
+    dynamic:
+      datasource:
+        book-ms:
+          type: com.alibaba.druid.pool.DruidDataSource
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/book-ms?useUnicode=true&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true
+          username: root
+          password: pass123
+        book-ms-account:
+          type: com.alibaba.druid.pool.DruidDataSource
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/book-ms-account?useUnicode=true&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true
+          username: root
+          password: pass123
+      # 指定默认数据源名称
+      primary: ms
+
   # Sharding Sphere 配置项
   shardingsphere:
     # 数据源配置
@@ -38,3 +56,6 @@ spring:
       name: ms # 名字，任意，需要保证唯一
       master-data-source-name: ds-master # 主库数据源
       slave-data-source-names: ds-slave-1, ds-slave-2 # 从库数据源
+    props:
+      # 日志显示SQL
+      sql.show: true

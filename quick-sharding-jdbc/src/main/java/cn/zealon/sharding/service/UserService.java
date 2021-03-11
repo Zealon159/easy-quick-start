@@ -4,7 +4,6 @@ import cn.zealon.sharding.dao.UserExtendsMapper;
 import cn.zealon.sharding.dao.UserMapper;
 import cn.zealon.sharding.domain.User;
 import cn.zealon.sharding.domain.UserExtends;
-import org.apache.shardingsphere.spring.boot.util.DataSourceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +36,7 @@ public class UserService {
     }
 
     public User getById(Integer id){
-        //DataSourceUtil.getDataSource("");
         return this.userMapper.selectById(id);
     }
+
 }
